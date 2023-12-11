@@ -1,33 +1,29 @@
+import ExpenseList from "./components/ExpenseList"
+import Heading from "./components/Heading"
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 
+Heading
 function App() {
-  const [count, setCount] = useState(0)
+  const [expense, setExpence] = useState([{
+    id: 1,
+    item: 'egg',
+    amount: 100,
+    category: 'new'
+  }, {
+    id: 2,
+    item: 'bread',
+    amount: 100,
+    category: 'new2'
+  }
+  ])
 
   return (
     <>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <Heading>Expense Tracker</Heading>
+        <ExpenseList expenses={expense} onDelete={(id) =>
+          setExpence(expense.filter(ele => ele.id != id))}></ExpenseList>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
