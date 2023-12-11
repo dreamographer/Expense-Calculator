@@ -4,6 +4,7 @@ import ExpenseList from "./components/ExpenseList"
 import Heading from "./components/Heading"
 import { useEffect, useState } from 'react'
 
+Heading
 function App() {
   
   type exp = {
